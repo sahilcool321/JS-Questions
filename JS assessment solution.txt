@@ -1,0 +1,85 @@
+1.  function getEvenNumbers() {
+        var arr = [1, 2, 3, 4, 5, 6];
+
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 === 0) {
+                console.log(arr[i]);
+            }
+        }
+    }
+
+    getEvenNumbers();
+
+2.function maxConsecutiveOnes() {
+    var nums = [0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0]
+    let res = 0;
+    let curr_cnt = 0;
+    for (let i = 0; i<nums.length; i++) {
+        if (nums[i] === 0) {
+            curr_cnt = 0;
+        } else {
+            curr_cnt++;
+            res = Math.max(curr_cnt,res)
+        };
+    };
+    console.log(res);
+};
+
+maxConsecutiveOnes()
+
+3.function repeatedNum() {
+        // I assume that array is given
+
+        for (let i = 0; i < 101; i++) {
+            if (arr[i] === arr[i+1]) {
+                console.log(arr[i]);
+                break;
+            }
+        }
+    }
+
+   repeatedNum();
+
+5. https://codepen.io/sahilcool321/pen/bGgXyNN
+
+6. https://codepen.io/sahilcool321/pen/XWpvwKz 
+
+7. let fetchBtn = document.getElementById("fetchBtn");
+  
+        fetchBtn.addEventListener("click", buttonclickhandler);
+  
+        function buttonclickhandler() {
+  
+            // Instantiate an new XHR Object
+            const xhr = new XMLHttpRequest();
+  
+            // Open an obejct (GET/POST, PATH,
+            // ASYN-TRUE/FALSE)
+            xhr.open("GET", 
+"http://dummy.restapiexample.com/api/v1/employees", true);
+  
+  
+  
+  
+            // When response is ready
+            xhr.onload = function () {
+                if (this.status === 200) {
+  
+                    // Changing string data into JSON Object
+                    obj = JSON.parse(this.responseText);
+  
+                    // Getting the ul element
+                    let list = document.getElementById("list");
+                    str = ""
+                    for (key in obj.data) {
+                        str += 
+                        `<li>${obj.data[key].employee_name}</li>`;
+                    }
+                    list.innerHTML = str;
+                }
+                else {
+                    console.log("File not found");
+                }
+            }
+            xhr.send();
+        }
